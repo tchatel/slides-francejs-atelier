@@ -104,11 +104,11 @@
 
         // Binding bidirectionnel sur la valeur
         //   d'une expression
-        propValue: '@attrValue',
+        propValue: '=attrValue',
 
         // Fonction permettant de déclencher une action
         //  (indiquée dans une expression)
-        propAction: '@attrAction',
+        propAction: '&attrAction',
 
     }
 
@@ -148,7 +148,6 @@
 1. Appeller scope.$watch() pour surveille le zoom
 
             map.setZoom(zoom);
-
     * utiliser `parseInt()`
 
 1. Mettre un second watch pour les coordonnées du centre
@@ -156,7 +155,6 @@
 
             map.setCenter(
                 new google.maps.LatLng(lat, lng));
-
     * utiliser `parseFloat()`
 
 
@@ -229,7 +227,6 @@
 
         <gmaps center="map.center"
                zoom="map.zoom"></gmaps>
-
     * il faut passer un `<div>` à Google Maps
     * utiliser un template
 

@@ -1,6 +1,1 @@
-slides-angularjs
-================
-
-Slides de présentation d'AngularJS à Devoxx France 2013
-
-[Cliquez ici pour voir les slides](http://tchatel.github.com/slides-angularjs/)
+Slides de l'atelier sur les directives AngularJS au DevFest du 8 novembre 2013 à Nantes.

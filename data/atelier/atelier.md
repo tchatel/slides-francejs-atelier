@@ -216,6 +216,7 @@
     replace: false,
 
     // Remplace l'élément courant par le template
+    // (avec un seul élément racine)
     replace: true,
 
 

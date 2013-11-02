@@ -258,7 +258,7 @@
 1. Refactoring : template séparé
     * mettre le template dans un fichier `gmaps.html` séparé
     * indiquer son URL (relative) avec `templateUrl`
-    * insérer un `<div>` contenant celui de la carte avec la classe `gmaps`
+    * insérer un `<div>` à la racine du template, contenant celui de la carte avec la classe `gmaps`
     * il faut alors passer à GoogleMaps `element.find('div')[0]`
 
 
@@ -269,11 +269,10 @@
 1. Mettre sous la carte un formulaire `<form>` avec
     * un champ `<input type="text" ng-model="label"/>`
     * un bouton `<input type="submit" value="Marqueur"/>`
-    * image qui tourne pendant 2 secondes
 
 1. Créer dans le scope une fonction qui ajoute un marqueur
     * aux coordonnées courantes du centre de la carte
-    * avec le titre saisi dans le formulaire _(label)_
+    * avec le titre saisi dans le formulaire _(label)_, lequel est effacé
 
 1. Appeler cette fonction à la soumission du formulaire
     * `<form ng-submit="addMarker()">`
@@ -285,6 +284,7 @@
 
 1. Dans la fonction d'ajout d'un marqueur
     * ajouter dans un tableau du scope un objet snapshot {_lat_, _lng_, _zoom_, _label_}
+    * `parseInt` pour _zoom_, `parseFloat` pour _lat_ et _lng_
 
 1. Afficher sous la carte et le formulaire une série de boutons
     * bouton `<button>` répété d'après le tableau des snapshots <br/>avec `ng-repeat="snapshot in snapshots"`
@@ -292,12 +292,12 @@
 
 1. Créer une fonction `goto(snapshot)` dans le scope
     * qui positionne la carte sur les valeurs _zoom_, _lat_ et _lng_ enregistrées
-    * déclenché au clic sur le bouton : `ng-click="goto(snapshot)"`
+    * déclenchée au clic sur le bouton : `ng-click="goto(snapshot)"`
 
 
 !SLIDE bullets ========================
 
-# Etape 9 : validation et attente
+# Etape 9 : validation et délai
 
 1. Désactiver le bouton _Marqueur_ s'il n'y a pas de libellé
     * Mettre un attribut `name="form"` au formulaire
@@ -306,7 +306,8 @@
 
 1. Temporiser l'enregistrement du snapshot _(image animée 2s)_
     * afficher le gif animé pendant 2s, avant que le nouveau bouton apparaisse
-    * utiliser le service $timeout
+    * utiliser le service `$timeout`
+    * utiliser `ng-show="condition"` pour conditionner la visibilité d'un élément HTML
 
 
 

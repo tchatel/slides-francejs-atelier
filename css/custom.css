@@ -56,10 +56,11 @@ div.slide.back img {
 .slide.bullets h1 {
     font-size: 2em;
     border-bottom: 15px solid thistle;
-    margin: 0.2em 0;
+    padding-top: 0;
+    margin: 0 0 0.2em 0;
 }
 .slide.bullets ul, .slide.bullets ol {
-    font-size: 1.15em;
+    font-size: 1.10em;
     margin: 0.6em 0 0 1.8em;
     padding: 0;
 }

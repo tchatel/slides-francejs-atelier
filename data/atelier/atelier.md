@@ -5,7 +5,7 @@
 
 !SLIDE ========================
 
-# API Google Maps 1/3
+# API Google Maps 1/4
 
 [Tutoriel : Hello World](https://developers.google.com/maps/documentation/javascript/tutorial)
 
@@ -23,7 +23,7 @@
 
 !SLIDE ========================
 
-# API Google Maps 2/3
+# API Google Maps 2/4
 
     map.setZoom(zoom)
     map.setCenter(new google.maps.LatLng(lat, lng))
@@ -35,7 +35,7 @@
 
 !SLIDE ========================
 
-# API Google Maps 3/3
+# API Google Maps 3/4
 
     google.maps.event.addListener(map, 'zoom_changed',
             function () {
@@ -47,6 +47,17 @@
             function () {
 
         // ...map.getCenter()...
+    });
+
+
+!SLIDE ========================
+
+# API Google Maps 4/4
+
+    new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng),
+        map: map,
+        title: label
     });
 
 
@@ -242,19 +253,76 @@
 
 !SLIDE bullets ========================
 
-# Etape 6 : marqueurs
+# Etape 6 : refactoring
 
-1. Dans la directive :
-    * bouton pour poser un marqueur et mémoriser l'état (coordonnées + zoom), avec un champ pour saisir un nom
-    * liste des marqueurs, permettant de revenir à chaque état mémorisé
+1. Refactoring : template séparé
+    * mettre le template dans un fichier `gmaps.html` séparé
+    * indiquer son URL (relative) avec `templateUrl`
+    * insérer un `<div>` contenant celui de la carte avec la classe `gmaps`
+    * il faut alors passer à GoogleMaps `element.find('div')[0]`
 
-        <gmaps center="map.center"
-               zoom="map.zoom"></gmaps>
 
-2. Délai lors de la pose d'un marqueur
+!SLIDE bullets ========================
+
+# Etape 7 : marqueur
+
+1. Mettre sous la carte un formulaire `<form>` avec
+    * un champ `<input type="text" ng-model="label"/>`
+    * un bouton `<input type="submit" value="Marqueur"/>`
     * image qui tourne pendant 2 secondes
 
-3. Quand on revient sur un marqueur :
-    * afficher son nom en read-only
-    * bouton pour l'enlever
+1. Créer dans le scope une fonction qui ajoute un marqueur
+    * aux coordonnées courantes du centre de la carte
+    * avec le titre saisi dans le formulaire _(label)_
+
+1. Appeler cette fonction à la soumission du formulaire
+    * `<form ng-submit="addMarker()">`
+
+
+!SLIDE bullets ========================
+
+# Etape 8 : snapshots
+
+1. Dans la fonction d'ajout d'un marqueur
+    * ajouter dans un tableau du scope un objet snapshot {_lat_, _lng_, _zoom_, _label_}
+
+1. Afficher sous la carte et le formulaire une série de boutons
+    * bouton `<button>` répété d'après le tableau des snapshots <br/>avec `ng-repeat="snapshot in snapshots"`
+    * libellé saisi pour le marqueur : <span ng-non-bindable>`{{snapshot.label}}`</span>
+
+1. Créer une fonction `goto(snapshot)` dans le scope
+    * qui positionne la carte sur les valeurs _zoom_, _lat_ et _lng_ enregistrées
+    * déclenché au clic sur le bouton : `ng-click="goto(snapshot)"`
+
+
+!SLIDE bullets ========================
+
+# Etape 9 : validation et attente
+
+1. Désactiver le bouton _Marqueur_ s'il n'y a pas de libellé
+    * Mettre un attribut `name="form"` au formulaire
+    * Rendre requis le champ de saisie du libellé, avec un attribut `required`
+    * Mettre au bouton _Marqueur_ : `ng-disabled="form.$invalid"`
+
+1. Temporiser l'enregistrement du snapshot _(image animée 2s)_
+    * afficher le gif animé pendant 2s, avant que le nouveau bouton apparaisse
+    * utiliser le service $timeout
+
+
+
+!SLIDE bullets ========================
+
+# Etape 10 : snapshots partagés
+
+_On veut que les snapshots soient communs à toutes les cartes._
+
+1. Publier un service en appelant sur le module :
+    * `.value('serviceName', serviceValue)`
+    * avec comme valeur un tableau vide
+
+1. Stocker le tableau des snapshots dans le service
+    * penser à injecter le service
+    * publier le service dans le scope
+
+
 

@@ -214,7 +214,7 @@
 
 !SLIDE ========================
 
-# template
+# Template
 
     template: '... template AngularJS avec directives ...',
 

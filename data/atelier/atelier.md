@@ -156,7 +156,7 @@
 
 # Etape 3 : <i>binding scope -> carte</i>
 
-1. Appeller scope.$watch() pour surveille le zoom
+1. Appeller scope.$watch() pour surveiller le zoom
 
             map.setZoom(zoom);
     * utiliser `parseInt()`
@@ -175,7 +175,7 @@
 # $apply
 
     // Exécution de code dans le contexte d'AngularJS
-    // suivie par un rafrâichissement de la vue
+    // suivie par un rafraîchissement de la vue
     scope.$apply(function () {
         // ... code ...
     });
@@ -256,7 +256,7 @@
 # Etape 6 : refactoring
 
 1. Refactoring : template séparé
-    * mettre le template dans un fichier `gmaps.html` séparé
+    * externaliser le template dans un fichier `gmaps.html` séparé
     * indiquer son URL (relative) avec `templateUrl`
     * insérer un `<div>` à la racine du template, contenant celui de la carte avec la classe `gmaps`
     * il faut alors passer à GoogleMaps `element.find('div')[0]`
@@ -283,7 +283,7 @@
 # Etape 8 : snapshots
 
 1. Dans la fonction d'ajout d'un marqueur
-    * ajouter dans un tableau du scope un objet snapshot {_lat_, _lng_, _zoom_, _label_}
+    * ajouter, dans un tableau du scope, un objet snapshot {_lat_, _lng_, _zoom_, _label_}
     * `parseInt` pour _zoom_, `parseFloat` pour _lat_ et _lng_
 
 1. Afficher sous la carte et le formulaire une série de boutons

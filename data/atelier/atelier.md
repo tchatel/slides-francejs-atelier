@@ -243,14 +243,6 @@
     * utiliser un template
 
 
-
-!SLIDE ========================
-
-# TODO
-
-## syntaxe ngRepeat, ngShow, ngBind ou {{...}},
-
-
 !SLIDE bullets ========================
 
 # Etape 6 : refactoring

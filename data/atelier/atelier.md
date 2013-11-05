@@ -70,7 +70,7 @@
     module.directive('nomEnCamelCase',
                    function (service1, service2) {
 
-        var directiveConfig = {
+        var directiveDefinition = {
             restrict: 'A',  // 'A' : attribute
             scope: false,
             link: function (scope, element, attrs) {
@@ -80,7 +80,7 @@
             }
         };
 
-        return directiveConfig;
+        return directiveDefinition;
 
     });
 

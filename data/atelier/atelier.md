@@ -70,7 +70,7 @@
     module.directive('nomEnCamelCase',
                    function (service1, service2) {
 
-        var directiveConfig = {
+        var directiveDefinition = {
             restrict: 'A',  // 'A' : attribute
             scope: false,
             link: function (scope, element, attrs) {
@@ -80,7 +80,7 @@
             }
         };
 
-        return directiveConfig;
+        return directiveDefinition;
 
     });
 
@@ -214,7 +214,7 @@
 
 !SLIDE ========================
 
-# template
+# Template
 
     template: '... template AngularJS avec directives ...',
 
@@ -241,14 +241,6 @@
                zoom="map.zoom"></gmaps>
     * il faut passer un `<div>` à Google Maps
     * utiliser un template
-
-
-
-!SLIDE ========================
-
-# TODO
-
-## syntaxe ngRepeat, ngShow, ngBind ou {{...}},
 
 
 !SLIDE bullets ========================

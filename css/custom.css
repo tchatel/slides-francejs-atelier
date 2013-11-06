@@ -130,11 +130,20 @@ div.slide.back img {
         border: none;
         margin: 0;
         float: none;
-        font-size: 120%;
+        font-size: 150%;
     }
     div.slide div.content > ul > li {
         list-style: square;
         line-height: 140%;
+    }
+
+    .slide.bullets ul li, .slide.bullets ol li {
+        margin: 1em 0 1em 0;
+        padding: 0.9em 0 0 0;
+        border-top: 3px solid #ccc;
+    }
+    .slide.bullets ul li:first-child, .slide.bullets ol li:first-child {
+        border-top: none;
     }
 
 }

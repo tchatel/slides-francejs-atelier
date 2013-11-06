@@ -106,3 +106,35 @@ div.slide.back img {
     font-size: 0.95em;
     margin: 0.8em 0 1.2em 0;
 }
+
+/* speakers */
+.speakers table {
+   width: 100%;
+   padding: 2em 5em;
+   font-size: 0.9em;
+   color: #333;
+}
+.speakers p > img {
+    margin-bottom: 3em;
+}
+
+/* impression */
+@media print {
+    body.all #slides {
+        zoom: 1;
+    }
+    .all .slide + .slide {
+        page-break-before: always;
+    }
+    .all div.slide {
+        border: none;
+        margin: 0;
+        float: none;
+        font-size: 120%;
+    }
+    div.slide div.content > ul > li {
+        list-style: square;
+        line-height: 140%;
+    }
+
+}

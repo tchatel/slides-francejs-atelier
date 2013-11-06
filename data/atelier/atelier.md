@@ -1,3 +1,17 @@
+!SLIDE speakers ============================
+
+![](angularjs-logo.png)
+## Intégrer un composant externe
+## dans une directive
+
+<table>
+<tr>
+<td>![](thierry-chatel.jpg)<br/>Thierry CHATEL</td>
+<td>![](antoine-richard.jpg)<br/>Antoine RICHARD</td>
+</tr>
+</table>
+
+
 !SLIDE ============================
 
 ![](affiche.png)
@@ -25,10 +39,10 @@
 
 # API Google Maps 2/4
 
-    map.setZoom(zoom)
-    map.setCenter(new google.maps.LatLng(lat, lng))
+    map.setZoom(zoom);
+    map.setCenter(new google.maps.LatLng(lat, lng));
 
-    map.getZoom();
+    map.getZoom()
     map.getCenter().lat()
     map.getCenter().lng()
 

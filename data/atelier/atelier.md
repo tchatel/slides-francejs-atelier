@@ -270,6 +270,16 @@
 
 !SLIDE bullets ========================
 
+# Etapes 5 & 6 : template séparé
+
+1. Template `gmaps.html` : <br/>`<div><div class="gmaps"></div></div>`
+2. `templateUrl: 'gmaps.html`
+3. `replace: true`
+3. `element.find('div')[0]`
+
+
+!SLIDE bullets ========================
+
 # Etape 7 : marqueur
 
 1. Mettre sous la carte un formulaire `<form>` avec

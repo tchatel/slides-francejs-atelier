@@ -7,14 +7,8 @@
 <table>
 <tr>
 <td>![](thierry-chatel.jpg)<br/>Thierry CHATEL</td>
-<td>![](antoine-richard.jpg)<br/>Antoine RICHARD</td>
 </tr>
 </table>
-
-
-!SLIDE ============================
-
-![](affiche.png)
 
 
 !SLIDE ========================
@@ -170,12 +164,12 @@
 
 # Etape 3 : <i>binding scope -> carte</i>
 
-1. Appeller scope.$watch() pour surveiller le zoom
+1. Dans la fonction **link**, appeller scope.$watch() pour surveiller le zoom
 
             map.setZoom(zoom);
     * utiliser `parseInt()`
 
-1. Mettre un second watch pour les coordonnées du centre
+1. Mettre un second $watch pour les coordonnées du centre
     * 3ème paramètre à `true` pour surveiller en profondeur
 
             map.setCenter(
@@ -286,7 +280,7 @@
     * un champ `<input type="text" ng-model="label"/>`
     * un bouton `<input type="submit" value="Marqueur"/>`
 
-1. Créer dans le scope une fonction qui ajoute un marqueur
+1. Dans la fonction **link**, ajouter au scope une fonction qui place un marqueur
     * aux coordonnées courantes du centre de la carte
     * avec le titre saisi dans le formulaire _(label)_, lequel est effacé
 
